@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONO | Premium Notion Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #333333;
+            --accent: #7a7a7a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 35px;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--light-gray);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--white),
+                var(--white) 10px,
+                var(--light-gray) 10px,
+                var(--light-gray) 20px
+            );
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 35px;
+            color: var(--dark-gray);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transition: width 0.3s;
+        }
+
+        .btn:hover:after {
+            width: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--black);
+            color: var(--black);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Templates Section */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 60px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--black);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background: var(--black);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .template-card {
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 2px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            border-color: transparent;
+        }
+
+        .template-img {
+            height: 220px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .template-img:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 5px,
+                rgba(0, 0, 0, 0.03) 5px,
+                rgba(0, 0, 0, 0.03) 10px
+            );
+        }
+
+        .template-content {
+            padding: 30px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .template-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .template-content p {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .template-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .template-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        .tag {
+            background: var(--light-gray);
+            color: var(--dark-gray);
+            padding: 6px 14px;
+            border-radius: 0;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            background: var(--light-gray);
+            padding: 100px 0;
+            margin: 100px 0;
+            position: relative;
+        }
+
+        .how-it-works:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000000' fill-opacity='0.02' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step {
+            text-align: center;
+            max-width: 240px;
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--white);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 25px;
+            border: 1px solid var(--medium-gray);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--black);
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+
+        .step p {
+            color: var(--dark-gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 40px;
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-color: transparent;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-card p:before {
+            content: """;
+            font-size: 5rem;
+            color: var(--light-gray);
+            opacity: 0.5;
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            font-weight: bold;
+            margin-right: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .user-info h4 {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .user-info p {
+            font-style: normal;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 1px;
+            background: var(--white);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 25px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .nav-links li {
+                margin-left: 25px;
+            }
+            
+            .steps {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+                margin: 60px 0 50px;
+            }
+            
+            .steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                margin-bottom: 40px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">MONO</div>
+            <ul class="nav-links">
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#how-it-works">Process</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Elevate Your Notion Experience</h1>
+            <p>Premium Notion templates designed for clarity and efficiency. Transform your workflow with minimalist design and maximum functionality.</p>
+            <a href="#templates" class="btn">Explore Templates</a>
+            <a href="#how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates">
+        <h2 class="section-title">Premium Templates</h2>
+        <div class="templates-grid">
+            <!-- Template 1 -->
+            <div class="template-card">
+                <div class="template-img">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="template-content">
+                    <h3>Productivity System</h3>
+                    <p>Comprehensive system for task management, goal tracking, and time optimization. Achieve more with less effort.</p>
+                    <div class="template-tags">
+                        <span class="tag">Productivity</span>
+                        <span class="tag">Time Management</span>
+                        <span class="tag">All-in-One</span>
+                    </div>
+                    <div class="template-price">$24.99</div>
+                    <a href="https://gumroad.com/l/notion-template-1" class="btn" target="_blank">Purchase Now</a>
+                </div>
+            </div>
+
+            <!-- Template 2 -->
+            <div class="template-card">
+                <div class="template-img">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="template-content">
+                    <h3>Academic Planner</h3>
+                    <p>Organize courses, assignments, exams, and research projects. Perfect for students and academics.</p>
+                    <div class="template-tags">
+                        <span class="tag">Education</span>
+                        <span class="tag">Students</span>
+                        <span class="tag">Study Planner</span>
+                    </div>
+                    <div class="template-price">$19.99</div>
+                    <a href="https://gumroad.com/l/notion-template-2" class="btn" target="_blank">Purchase Now</a>
+                </div>
+            </div>
+
+            <!-- Template 3 -->
+            <div class="template-card">
+                <div class="template-img">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="template-content">
+                    <h3>Business CRM</h3>
+                    <p>Manage clients, projects, invoices, and sales pipelines. Essential tool for entrepreneurs and small businesses.</p>
+                    <div class="template-tags">
+                        <span class="tag">Business</span>
+                        <span class="tag">CRM</span>
+                        <span class="tag">Entrepreneurs</span>
+                    </div>
+                    <div class="template-price">$29.99</div>
+                    <a href="https://gumroad.com/l/notion-template-3" class="btn" target="_blank">Purchase Now</a>
+                </div>
+            </div>
+
+            <!-- Template 4 -->
+            <div class="template-card">
+                <div class="template-img">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="template-content">
+                    <h3>Wellness Tracker</h3>
+                    <p>Monitor health habits, mood, workouts, and mindfulness practices. Your personal wellness companion.</p>
+                    <div class="template-tags">
+                        <span class="tag">Health</span>
+                        <span class="tag">Wellness</span>
+                        <span class="tag">Self-Care</span>
+                    </div>
+                    <div class="template-price">$17.99</div>
+                    <a href="https://gumroad.com/l/notion-template-4" class="btn" target="_blank">Purchase Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2 class="section-title">Simple Process</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Browse Templates</h3>
+                <p>Explore our collection of premium Notion templates designed for various needs and workflows.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Purchase & Download</h3>
+                <p>Securely purchase your chosen template and receive instant access to the download.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Duplicate to Notion</h3>
+                <p>Open the template link and click "Duplicate" to add it to your Notion workspace.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Customize & Use</h3>
+                <p>Personalize the template to fit your specific needs and start being productive immediately.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Client Experiences</h2>
+        <div class="testimonials-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <p>This productivity system completely transformed how I manage my work. I've doubled my output since implementing it. The minimalist design keeps me focused.</p>
+                <div class="user">
+                    <div class="user-img">MJ</div>
+                    <div class="user-info">
+                        <h4>Michael Johnson</h4>
+                        <p>Freelance Designer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <p>As a PhD student, the Academic Planner has been invaluable. I've never been more organized. The clean aesthetic makes it a pleasure to use every day.</p>
+                <div class="user">
+                    <div class="user-img">SP</div>
+                    <div class="user-info">
+                        <h4>Sarah Peterson</h4>
+                        <p>Research Student</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <p>The Business CRM template helped me organize my startup operations. It's like having a free assistant! The monochromatic design is both professional and calming.</p>
+                <div class="user">
+                    <div class="user-img">DR</div>
+                    <div class="user-info">
+                        <h4>David Rodriguez</h4>
+                        <p>Startup Founder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MONO</h3>
+                    <p>Premium Notion templates designed with minimalism and efficiency in mind. Transform your productivity today.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#templates">All Templates</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                        <li><a href="#">Bundle Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Setup Guide</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe for new templates and productivity insights.</p>
+                    <form>
+                        <input type="email" placeholder="Your email address" style="padding: 12px; width: 100%; margin-bottom: 15px; border-radius: 0; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: white;">
+                        <button type="submit" class="btn" style="width: 100%; background: white; color: black;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 MONO Notion Templates. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
